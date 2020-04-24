@@ -25,9 +25,25 @@ var nextMove;
 // Controller - handles the game logic
 //=================================================================
 
+// Function to reset the gameboard
+var resetGame = function () {
+  gameState = [
+    ['','',''],
+    ['','',''],
+    ['','','']
+  ];
+  nextMove = 'X';
+}
+
+// Initialize an empty board
+resetGame();
+
+document.getElementById("board").addEventListener('click', (e) => addNextMove(e));
+
+var addNextMove = function(e) {
+  console.log(e);
+  // if ()
+  // debugger;
+}
 
 
-
-//=================================================================
-// Model - handles the state of the game/board
-//=================================================================
