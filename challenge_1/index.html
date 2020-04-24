@@ -3,28 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Tic Tac Toe | Mini App 1</title>
+    <style>
+      body {margin: 0 auto; max-width: 500px; text-align: center;}
+      table {border-collapse: collapse; margin: auto;}
+      td {border: 1px solid black; padding: 15px; font-size: 25px; width: 50px; height: 50px;}
+    </style>
   </head>
   <body>
     <h1>Tic Tac Toe</h1>
     <h2>Mini App #1</h2>
     <div id="app">
-      <table>
+      <table id="board">
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="r0c0">x</td>
+          <td id="r0c1">o</td>
+          <td id="r0c2">o</td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="r1c0"></td>
+          <td id="r1c1"></td>
+          <td id="r1c2"></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td id="r2c0"></td>
+          <td id="r2c1"></td>
+          <td id="r2c2"></td>
         </tr>
       </table>
+      <button id="reset">Reset</button>
     </div>
     <script src="app.js"></script>
   </body>
