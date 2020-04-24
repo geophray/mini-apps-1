@@ -33,6 +33,7 @@ var resetGame = function () {
     ['','','']
   ];
   nextMove = 'X';
+  renderBoard();
 }
 
 // Initialize an empty board
