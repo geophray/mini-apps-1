@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/miniapp3', {useNewUrlParser: true, useUnifiedTopology: true});
-
+mongoose.set('useFindAndModify', false);
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -35,7 +35,6 @@ var create = (userinfo, callback) => {
 
   var order = new Order(userinfo);
   order.save((err, order) => {
-    // if (err) return console.error(err);
     callback(err, order);
   });
 
@@ -43,10 +42,11 @@ var create = (userinfo, callback) => {
 
 
 // ==================================== Find by id and update
-// Order.findByIdAndUpdate('5ea4a9b4f4c77e7bf93c7b2c', { username: 'Kallie', useremail: 'kallie.maughan@gmail.com' }, (err, doc) => {
-//   if (err) console.error(err);
-//   console.log(doc);
-// });
+var updateOrder = (userinfo, callback) => {
+  Order.findByIdAndUpdate(userinfo._id, userinfo, (err, order) => {
+    callback(err, order);
+  });
+}
 
 
 // ===================================== Find all orders
@@ -57,3 +57,4 @@ var create = (userinfo, callback) => {
 
 
 module.exports.create = create;
+module.exports.updateOrder = updateOrder;

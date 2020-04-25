@@ -11,7 +11,12 @@ app.post('/order', (req, res) => {
   console.log(req.body);
 
   if (req.body.hasOwnProperty('_id')) {
-    console.log('ID exists!');
+    db.updateOrder(req.body, (err, result) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+      res.status(200).send(result);
+    })
   } else {
     db.create(req.body, (err, result) => {
       if (err) {
@@ -20,7 +25,6 @@ app.post('/order', (req, res) => {
       res.status(201).send(result);
     });
   }
-
 });
 
 
