@@ -31,11 +31,15 @@ var orderSchema = new mongoose.Schema({
 var Order = mongoose.model('Order', orderSchema);
 
 // ==================================== Create new order
-// var order = new Order({username: 'Jeff'});
-// order.save((err, order) => {
-//   if (err) return console.error(err);
-//   console.log(order);
-// });
+var create = (userinfo, callback) => {
+
+  var order = new Order(userinfo);
+  order.save((err, order) => {
+    // if (err) return console.error(err);
+    callback(err, order);
+  });
+
+}
 
 
 // ==================================== Find by id and update
@@ -52,4 +56,4 @@ var Order = mongoose.model('Order', orderSchema);
 // });
 
 
-module.exports.Order = Order;
+module.exports.create = create;
