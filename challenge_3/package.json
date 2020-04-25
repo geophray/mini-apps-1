@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "babel": "./node_modules/.bin/babel client/app.jsx --watch --out-file public/index.js",
+    "babel": "./node_modules/.bin/babel client/app.jsx --watch --out-file public/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server-dev": "nodemon server.js",
     "start": "node server.js"
