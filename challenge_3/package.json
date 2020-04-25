@@ -6,8 +6,8 @@
   "scripts": {
     "babel": "./node_modules/.bin/babel client --watch --out-dir public --source-maps inline",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server-dev": "nodemon server",
-    "start": "node server"
+    "server-dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

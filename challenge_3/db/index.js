@@ -30,14 +30,11 @@ var orderSchema = new mongoose.Schema({
 
 var Order = mongoose.model('Order', orderSchema);
 
-
-
 // ==================================== Create new order
 // var order = new Order({username: 'Jeff'});
 // order.save((err, order) => {
-//   if (err) {
-//     return console.error(err);
-//   }
+//   if (err) return console.error(err);
+//   console.log(order);
 // });
 
 
@@ -53,3 +50,6 @@ var Order = mongoose.model('Order', orderSchema);
 //   if (err) return console.error(err);
 //   console.log(orders);
 // });
+
+
+module.exports.Order = Order;
