@@ -11,7 +11,7 @@ db.once('open', function() {
 
 var orderSchema = new mongoose.Schema({
   username: String,
-  userEmail: String,
+  useremail: String,
   phone: String,
   shippingAddress: {
     line1: String,
@@ -21,7 +21,7 @@ var orderSchema = new mongoose.Schema({
     zipcode: Number
   },
   billing: {
-    creditCard: Number,
+    creditcard: Number,
     exp: String,
     cvv: Number,
     zipcode: Number
@@ -30,9 +30,26 @@ var orderSchema = new mongoose.Schema({
 
 var Order = mongoose.model('Order', orderSchema);
 
-var order = new Order({username: 'Jeff'});
-order.save((err, order) => {
-  if (err) {
-    return console.error(err);
-  }
-});
+
+
+// ==================================== Create new order
+// var order = new Order({username: 'Jeff'});
+// order.save((err, order) => {
+//   if (err) {
+//     return console.error(err);
+//   }
+// });
+
+
+// ==================================== Find by id and update
+// Order.findByIdAndUpdate('5ea4a9b4f4c77e7bf93c7b2c', { username: 'Kallie', useremail: 'kallie.maughan@gmail.com' }, (err, doc) => {
+//   if (err) console.error(err);
+//   console.log(doc);
+// });
+
+
+// ===================================== Find all orders
+// Order.find((err, orders) => {
+//   if (err) return console.error(err);
+//   console.log(orders);
+// });
