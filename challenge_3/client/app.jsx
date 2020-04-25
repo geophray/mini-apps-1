@@ -3,7 +3,28 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      step: 0
+      step: 0,
+      user: {
+        id: '',
+        name: '',
+        email: ''
+      },
+      shipping: {
+        address: {
+          line1: '',
+          line2: '',
+          city: '',
+          state: '',
+          zipcode: ''
+        },
+        phone: ''
+      },
+      billing: {
+        cardLast4: '',
+        exp: '',
+        cvv: '',
+        zipcode: ''
+      }
     }
   }
 
@@ -18,7 +39,7 @@ class App extends React.Component {
     } else if (step === 3) {
       return <Form3 />;
     } else {
-      return <OrderComplete />;
+      return <ConfirmPurchase />;
     }
   }
 }
@@ -47,9 +68,9 @@ var Form3 = (props) => {
   );
 };
 
-var OrderComplete = (props) => {
+var ConfirmPurchase = (props) => {
   return (
-    <div>Order Complete</div>
+    <div>Complete Order</div>
   );
 };
 
