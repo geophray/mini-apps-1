@@ -7,17 +7,15 @@ class App extends React.Component {
       user: {
         id: '',
         name: '',
-        email: ''
-      },
-      shipping: {
-        address: {
-          line1: '',
-          line2: '',
-          city: '',
-          state: '',
-          zipcode: ''
-        },
+        email: '',
         phone: ''
+      },
+      shippingAddress: {
+        line1: '',
+        line2: '',
+        city: '',
+        state: '',
+        zipcode: ''
       },
       billing: {
         cardLast4: '',
@@ -25,7 +23,7 @@ class App extends React.Component {
         cvv: '',
         zipcode: ''
       }
-    }
+    };
   }
 
   render() {
