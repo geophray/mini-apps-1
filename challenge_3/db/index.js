@@ -10,8 +10,8 @@ db.once('open', function() {
 });
 
 var orderSchema = new mongoose.Schema({
-  username: String,
-  useremail: String,
+  name: String,
+  email: String,
   phone: String,
   shippingAddress: {
     line1: String,

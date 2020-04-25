@@ -5,23 +5,23 @@ class App extends React.Component {
     this.state = {
       step: 0,
       user: {
-        id: '',
+        _id: '',
         name: '',
         email: '',
-        phone: ''
-      },
-      shippingAddress: {
-        line1: '',
-        line2: '',
-        city: '',
-        state: '',
-        zipcode: ''
-      },
-      billing: {
-        cardLast4: '',
-        exp: '',
-        cvv: '',
-        zipcode: ''
+        phone: '',
+        shippingAddress: {
+          line1: '',
+          line2: '',
+          city: '',
+          state: '',
+          zipcode: ''
+        },
+        billing: {
+          cardLast4: '',
+          exp: '',
+          cvv: '',
+          zipcode: ''
+        }
       }
     };
   }
