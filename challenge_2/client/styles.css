@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto;
+  max-width: 900px;
+  text-align: center;
+  background-color: orange;
+}
+
+#app {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+input, button {
+  padding: 10px;
+  margin-bottom: 45px;
+}
+
+button {
+  margin: 10px auto;
+}
