@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -9,8 +10,20 @@ app.use(express.static(path.resolve(__dirname, './client')));
 app.use(express.urlencoded({extended: true}));
 
 app.post('/api/json', (req, res) => {
-  console.log('Here is the body of the doc: ', req.body);
-  res.status(200).send("Success!");
+
+  // Parse json into an object
+  let obj = JSON.parse(req.body.jsonData);
+
+  // Reformat data to be in csv format
+  let headers = Object.keys(obj);
+  console.log(headers);
+
+  // Write it to a file
+
+
+  // Return the csv file to the client
+
+  res.status(200).send(obj);
 })
 
 app.listen(port, () => {
