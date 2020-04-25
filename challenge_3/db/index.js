@@ -3,11 +3,11 @@ mongoose.connect('mongodb://localhost/miniapp3', {useNewUrlParser: true, useUnif
 mongoose.set('useFindAndModify', false);
 var db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-  console.log('MongoDB connection successful!');
-});
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//   // we're connected!
+//   console.log('MongoDB connection successful!');
+// });
 
 var orderSchema = new mongoose.Schema({
   name: String,
