@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "babel": "./node_modules/.bin/babel client/app.jsx --watch --out-file public/app.js",
+    "babel": "./node_modules/.bin/babel client --watch --out-dir public --source-maps inline",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server-dev": "nodemon server.js",
     "start": "node server.js"
@@ -13,9 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^3.5.6",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "mongodb": "^3.5.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",

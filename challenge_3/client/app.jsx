@@ -1,5 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 
 class App extends React.Component {
   constructor(props){
@@ -9,7 +7,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>Hello World!  From my React.jsx.</div>
+      // <CheckOutButton />
+      <div>Hello</div>
     )
   }
 
@@ -18,3 +17,8 @@ class App extends React.Component {
 console.log('My react is being executed/transpiled!');
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+
+// var CheckOutButton = (props) => {
+
+// }
