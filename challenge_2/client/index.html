@@ -9,7 +9,13 @@
   <body>
     <h1>CSV Report Generator</h1>
     <h2>Mini App #2</h2>
-    <div id="app"></div>
+    <div id="app">
+      <form action="/api/json" method="POST">
+        <label for="json-data">JSON data:</label>
+        <textarea id="json-data"></textarea>
+        <input type="submit" value="Send JSON">
+      </form>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>

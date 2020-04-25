@@ -3,7 +3,8 @@
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 800px;
+  width: 90%;
   text-align: center;
   background-color: orange;
 }
@@ -15,11 +16,20 @@ body {
   justify-content: space-evenly;
 }
 
-input, button {
-  padding: 10px;
-  margin-bottom: 45px;
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: flex-start;
 }
 
-button {
-  margin: 10px auto;
+input, textarea, button {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  height: 30vh;
+  width:100%;
+  box-sizing: border-box;
 }
