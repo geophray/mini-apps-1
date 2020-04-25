@@ -24,12 +24,22 @@ class App extends React.Component {
         }
       }
     };
+
+    this.startCheckout = this.startCheckout.bind(this);
+  }
+
+  startCheckout() {
+    this.setState((state) => {
+      return {
+        step: 1
+      }
+    });
   }
 
   render() {
     let step = this.state.step;
     if (step === 0) {
-      return <CheckOutButton />;
+      return <CheckOutButton start={this.startCheckout} />;
     } else if (step === 1) {
       return <Form1 />;
     } else if (step === 2) {
@@ -42,9 +52,9 @@ class App extends React.Component {
   }
 }
 
-var CheckOutButton = (props) => {
+var CheckOutButton = ({start}) => {
   return (
-    <div>Button</div>
+    <button onClick={start}>Begin Checkout</button>
   );
 };
 
@@ -71,7 +81,5 @@ var ConfirmPurchase = (props) => {
     <div>Complete Order</div>
   );
 };
-
-console.log('My react is being executed/transpiled!');
 
 ReactDOM.render(<App />, document.getElementById('app'));
