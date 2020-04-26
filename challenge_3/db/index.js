@@ -32,7 +32,7 @@ var Order = mongoose.model('Order', orderSchema);
 
 // ==================================== Create new order
 var create = (userinfo, callback) => {
-
+  // console.log('Inside db.create => ', userinfo);
   var order = new Order(userinfo);
   order.save((err, order) => {
     callback(err, order);
