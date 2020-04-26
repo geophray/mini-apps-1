@@ -12,20 +12,17 @@ var db = mongoose.connection;
 var orderSchema = new mongoose.Schema({
   name: String,
   email: String,
+  password: String,
   phone: String,
-  shippingAddress: {
-    line1: String,
-    line2: String,
-    city: String,
-    state: String,
-    zipcode: Number
-  },
-  billing: {
-    creditcard: Number,
-    exp: String,
-    cvv: Number,
-    zipcode: Number
-  }
+  addressLine1: String,
+  addressLine2: String,
+  city: String,
+  state: String,
+  zipCode: Number,
+  creditCard: Number,
+  exp: String,
+  cvv: Number,
+  billingZip: Number
 });
 
 var Order = mongoose.model('Order', orderSchema);

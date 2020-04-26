@@ -44,12 +44,16 @@ class App extends React.Component {
     for (let i = 0; i < inputs.length - 1; i++) {
       orderdata[inputs[i].name] = inputs[i].value;
     }
+    if (this.state.user._id) {
+      orderdata._id = this.state.user._id;
+    }
     // let orderJSON = JSON.stringify(orderdata);
     axios
       .post('/order', orderdata)
       .then(res => {
         console.log('HOORAY!', res);
         let newState = Object.assign(orderdata, res.data);
+        delete newState.password;
         this.setState((state) => {
           return {
             user: newState,
@@ -68,9 +72,9 @@ class App extends React.Component {
     } else if (step === 1) {
       return <Form1 next={this.sendPost} />;
     } else if (step === 2) {
-      return <Form2 />;
+      return <Form2 next={this.sendPost} />;
     } else if (step === 3) {
-      return <Form3 />;
+      return <Form3 next={this.sendPost} />;
     } else {
       return <ConfirmPurchase />;
     }
@@ -103,9 +107,36 @@ var Form1 = ({next}) => {
   );
 };
 
-var Form2 = (props) => {
+var Form2 = ({next}) => {
   return (
-    <div>Form 2</div>
+    <form>
+      <h3>Shipping Information</h3>
+      <label>
+        Address 1
+        <input name="addressLine1"></input>
+      </label>
+      <label>
+        Address 2
+        <input name="addressLine2"></input>
+      </label>
+      <label>
+        City
+        <input name="city"></input>
+      </label>
+      <label>
+        State
+        <input name="state"></input>
+      </label>
+      <label>
+        Zip Code
+        <input name="zipCode"></input>
+      </label>
+      <label>
+        Phone:
+        <input name="phone"></input>
+      </label>
+      <input type="submit" value="Next" onClick={(e) => {next(e)}}></input>
+    </form>
   );
 };
 
