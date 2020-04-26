@@ -3,7 +3,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       step: 0,
-      user: {
+      order: {
         _id: '',
         name: '',
         email: '',
@@ -26,12 +26,22 @@ class App extends React.Component {
 
     this.startCheckout = this.startCheckout.bind(this);
     this.sendPost = this.sendPost.bind(this);
+    this.orderComplete = this.orderComplete.bind(this);
   }
 
   startCheckout() {
     this.setState((state) => {
       return {
         step: state.step + 1
+      }
+    });
+  }
+
+  orderComplete () {
+    this.setState((state) => {
+      return{
+        step: 0,
+        order: {}
       }
     });
   }
@@ -44,8 +54,8 @@ class App extends React.Component {
     for (let i = 0; i < inputs.length - 1; i++) {
       orderdata[inputs[i].name] = inputs[i].value;
     }
-    if (this.state.user._id) {
-      orderdata._id = this.state.user._id;
+    if (this.state.order._id) {
+      orderdata._id = this.state.order._id;
     }
     // let orderJSON = JSON.stringify(orderdata);
     axios
@@ -56,7 +66,7 @@ class App extends React.Component {
         delete newState.password;
         this.setState((state) => {
           return {
-            user: newState,
+            order: newState,
             step: state.step + 1
           }
         })
@@ -76,7 +86,7 @@ class App extends React.Component {
     } else if (step === 3) {
       return <Form3 next={this.sendPost} />;
     } else {
-      return <ConfirmPurchase />;
+      return <ConfirmPurchase startOver={this.orderComplete} order={this.state.order} />;
     }
   }
 }
@@ -140,15 +150,57 @@ var Form2 = ({next}) => {
   );
 };
 
-var Form3 = (props) => {
+var Form3 = ({next}) => {
   return (
-    <div>Form 3</div>
+    <form>
+      <h3>Billing Information</h3>
+      <label>
+        Credit Card #:
+        <input name="creditCard"></input>
+      </label>
+      <label>
+        Expiration:
+        <input name="exp"></input>
+      </label>
+      <label>
+        CVV:
+        <input name="cvv"></input>
+      </label>
+      <label>
+        ZipCode:
+        <input name="billingZip"></input>
+      </label>
+      <input type="submit" value="Next" onClick={(e) => {next(e)}}></input>
+    </form>
   );
 };
 
-var ConfirmPurchase = (props) => {
+var ConfirmPurchase = ({startOver, order}) => {
   return (
-    <div>Complete Order</div>
+    <div>
+      <h3>Confirm Purchase</h3>
+      <p>Please confirm the details of your purchase.</p>
+  <p><span className="label">Name:</span>{order.name}</p>
+  <p><span className="label">Email:</span>{order.email}</p>
+  <p><span className="label">Phone:</span>{order.phone}</p>
+      <h4>Shipping Information</h4>
+  <p><span className="label">Address 1</span>{order.addressLine1}</p>
+      <p><span className="label">Address 2</span>{order.addressLine2}</p>
+      <p><span className="label">City</span>{order.city}</p>
+      <p><span className="label">State</span>{order.state}</p>
+      <p><span className="label">Zipcode</span>{order.zipCode}</p>
+      <h4>Billing Information</h4>
+      <p><span className="label">Credit Card#:</span>{order.creditCard}</p>
+      <p><span className="label">Expiration:</span>{order.exp}</p>
+      <p><span className="label">CVV:</span>{order.cvv}</p>
+      <p><span className="label">Billing Zip:</span>{order.billingZip}</p>
+      <img src="https://i.insider.com/5d0bfff7e3ecba67c1015175?width=700&format=jpeg&auto=webp"></img>
+      <h4>Purchase Details</h4>
+      <p><span className="label">Product:</span> Necker Island</p>
+      <p><span className="label">Price:</span>$60 million</p>
+
+      <button onClick={startOver}>Complete Purchase</button>
+    </div>
   );
 };
 
